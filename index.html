@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ngForecast">
+<head>
+	<meta charset="UTF-8">
+	<title>NG Forecast</title>
+	<!-- libs -->
+	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+	<!-- end libs -->
+	<!-- main app -->
+	<script type="text/javascript" src="src/app.js"></script>
+	<script type="text/javascript" src="src/routes.js"></script>
+	<!-- end main app -->
+	<!-- controllers -->
+	<script type="text/javascript" src="src/controllers/mainController.js"></script>
+	<script type="text/javascript" src="src/controllers/homeController.js"></script>
+	<script type="text/javascript" src="src/controllers/settingsController.js"></script>
+	<!-- end controllers -->
+	<script type="text/javascript" src="src/utils/utils.js"></script>
+	<!-- factories -->
+	<script type="text/javascript" src="src/factories/widgetListFactory.js"></script>
+	<script type="text/javascript" src="src/factories/widgetFactory.js"></script>
+	<!-- end factories -->
+	<!-- directives -->
+	<script type="text/javascript" src="src/directives/home.js"></script>
+	<script type="text/javascript" src="src/directives/message.js"></script>
+	<script type="text/javascript" src="src/directives/widgets.js"></script>
+	<!-- end diectives -->
+	<!-- filters -->
+	<script type="text/javascript" src="src/filters/dateFilter.js"></script>
+	<!-- end filers -->
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+	<h1>ngforecast</h1>
+	<div class="-main-container" >
+		<ul class="nav nav-pills">
+		  <li role="presentation" ng-class="{active: isActive('/home')}"><a href="#home">Home</a></li>
+		  <li role="presentation" ng-class="{active: isActive('/settings')}" ><a href="#settings">Settings</a></li>
+		</ul>
+		<div class="container" ng-view></div>
+	</div>
+</body>
+</html>
