@@ -1,1 +1,11 @@
-<widgets></widgets>
+<div class="widgets-container">
+	<div class="panel panel-default" ng-repeat="city in cities">
+	  	<div class="panel-heading">
+	    	<h3 class="panel-title">{{city.name}}</h3>
+	  	</div>
+	  	<div class="panel-body">
+	    	{{city.temp + " °C"}}
+	    	<i class="{{city.icon}}"></i>
+	  	</div>
+	</div>
+</div>

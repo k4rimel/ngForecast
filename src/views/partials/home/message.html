@@ -1,6 +1,6 @@
-<div class="panel panel-info" ng-show="HomeController.error">
-  <div class="panel-heading">Your forecast menu is empty !</div>
+<div class="panel panel-info" ng-show="err">
+  <div class="panel-heading">{{message.title}}</div>
   <div class="panel-body">
-	{{HomeController.pastille}}
+	{{message.text}}
   </div>
 </div>

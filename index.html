@@ -18,27 +18,31 @@
 	<!-- end controllers -->
 	<script type="text/javascript" src="src/utils/utils.js"></script>
 	<!-- factories -->
-	<script type="text/javascript" src="src/factories/widgetListFactory.js"></script>
+	<script type="text/javascript" src="src/factories/storageFactory.js"></script>
 	<script type="text/javascript" src="src/factories/widgetFactory.js"></script>
 	<!-- end factories -->
 	<!-- directives -->
 	<script type="text/javascript" src="src/directives/home.js"></script>
 	<script type="text/javascript" src="src/directives/message.js"></script>
-	<script type="text/javascript" src="src/directives/widgets.js"></script>
+	<script type="text/javascript" src="src/directives/forecast.js"></script>
 	<!-- end diectives -->
 	<!-- filters -->
 	<script type="text/javascript" src="src/filters/dateFilter.js"></script>
 	<!-- end filers -->
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/weather-icons/css/weather-icons.min.css">
 </head>
-<body>
-	<h1>ngforecast</h1>
-	<div class="-main-container" >
-		<ul class="nav nav-pills">
-		  <li role="presentation" ng-class="{active: isActive('/home')}"><a href="#home">Home</a></li>
-		  <li role="presentation" ng-class="{active: isActive('/settings')}" ><a href="#settings">Settings</a></li>
-		</ul>
-		<div class="container" ng-view></div>
+<body style="background-color: #1d1d1d;">
+	<div class="container-fluid">
+		<div class="row">
+			<h1>ngforecast</h1>
+			<ul class="nav nav-pills">
+			  <li role="presentation" ng-class="{active: $route.current.activetab == ''}"><a href="home">Home</a></li>
+			  <li role="presentation" ng-class="{active: $route.current.activetab == 'settings'}" ><a href="settings">Settings</a></li>
+			</ul>
+		</div>
+		<div class="row" ng-view>
+		</div>
 	</div>
 </body>
 </html>

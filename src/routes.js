@@ -8,11 +8,13 @@
                 $routeProvider
                     .when('/', {
                         templateUrl: '/src/views/partials/home/home.html',
-                        controller: 'HomeController'
+                        controller: 'HomeController',
+                        activeMenu: 'home'
                     })
                     .when('/settings', {
                         templateUrl: '/src/views/partials/settings/settings.html',
-                        controller: 'SettingsController'
+                        controller: 'SettingsController',
+                        activeMenu: 'settings'
                     })
                     .otherwise({
                         redirectTo: '/'

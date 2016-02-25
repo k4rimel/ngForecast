@@ -5,30 +5,29 @@
 		.module('ngForecast')
 		.controller('HomeController', HomeController);
 
-	function HomeController(WidgetList, Widget) {
-		var home = this;
-		home.data = {};
-		home.error = false;
-		home.message = "";
-		home.active = false;
-		$scope.pastille = "pastille";
+	function HomeController($scope, $route, Storage, Widget) {
+		// var home = $scope;
+		$scope.cities = [];
+		$scope.err = false;
+		$scope.message = {};
+		$scope.message.title = "";
+		$scope.message.text = "";
 
-		home.getData = function() {
-			if(WidgetList.get().length === 0) {
-				home.error = true;
-				home.message = "Your forecast menu is empty ! add cities via the Settings menu.";
-
+		$scope.getData = function() {
+			if(Storage.get().length === 0) {
+				$scope.err = true;
+				$scope.message.title = 'Your forecast menu is empty !';
+				$scope.message.text = 'You can add cities via the <a href="settings">Settings</a> menu.';
+			} else {
+				$scope.cities = Storage.cities;
 			}
-		  	home.data = WidgetList.get();
 		}
 
-		home.init = function() {
-			home.active = true;
-			console.log("init");
-			home.getData();
+		$scope.init = function() {
+			$scope.getData();
 		};
 		
 	  	
-	  	// home.init();
+	  	$scope.init();
 	}
 })();
