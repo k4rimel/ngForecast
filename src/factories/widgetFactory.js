@@ -9,7 +9,6 @@
 		var factory = {};
 
 		factory.data = {};
-		factory.icons = [];
 		factory.key = '765f1d4652f5fd3e9e7adefc65db2b47';
 
 		function makeRequest(url) {
@@ -22,11 +21,6 @@
 
 		factory.getCity = function(value) {
 			//todo : test if http 200 code and errors
-
-			// get the icon codes
-			$http.get('/src/views/icons/icons.json').success(function(data) {
-			    factory.icons = data;
-			});
 
 			var req;
 			// api calls

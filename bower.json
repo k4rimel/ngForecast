@@ -20,6 +20,8 @@
     "bootstrap": "^3.3.6",
     "weather-icons": "^2.0.10",
     "angular-resource": "^1.5.0",
-    "angular-route": "^1.5.0"
+    "angular-route": "^1.5.0",
+    "bower-bootswatch-paper": "*",
+    "angular-sanitize": "^1.5.0"
   }
 }

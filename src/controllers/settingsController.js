@@ -30,7 +30,7 @@
 				var city = {};
 				var prefix = 'wi wi-';
 				var wCode = res.weather[0].id;
-			  	var icon = Widget.icons[wCode].icon;
+			  	var icon = ICONS[wCode].icon;
 			  	if (!(wCode > 699 && wCode < 800) && !(wCode > 899 && wCode < 1000)) {
 		  	 	icon = 'day-' + icon;
 			  	}

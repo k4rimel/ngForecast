@@ -1,6 +1,5 @@
-<div class="panel panel-info" ng-show="err">
+<div class="panel panel-danger" ng-show="err">
   <div class="panel-heading">{{message.title}}</div>
-  <div class="panel-body">
-	{{message.text}}
+  <div class="panel-body" ng-bind-html="message.text">
   </div>
 </div>

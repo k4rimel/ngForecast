@@ -1,12 +1,17 @@
-<form class="form-inline">
-	<div class="form-group">
-	    <label for="cityInput">Add a new City : </label>
-	    <input type="text" class="form-control" id="cityInput" placeholder="type a city name or code" ng-model="cityName">
+<div class="row">
+    <div class="col-md-6 col-md-offset-6">
+        <form class="form-inline">
+        	<div class="form-group">
+        	    <label for="cityInput">Add a new City : </label>
+        	    <input type="text" class="form-control" id="cityInput" placeholder="type a city name or code" ng-model="cityName">
 
-	</div>
-	<button type="submit" class="btn btn-success" ng-click="add(cityName)">Add</button>
-</form>
-<table class="table table-hover">
+        	</div>
+        	<button type="submit" class="btn btn-success" ng-click="add(cityName)">Add</button>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <table class="table table-hover">
        <thead>
            <tr>
                <th>City</th>
@@ -21,4 +26,5 @@
                <td><a href="" ng-click="removeCity(city.id)"><span class="glyphicon glyphicon-remove"></span></a></td>
            </tr>
        </tbody>
-</table>
+    </table>
+</div>

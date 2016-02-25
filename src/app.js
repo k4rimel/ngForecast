@@ -1,6 +1,6 @@
 (function(){
 	'use strict';
 
-	angular.module("ngForecast", ['ngRoute']);
+	angular.module("ngForecast", ['ngRoute', 'ngSanitize']);
 	
 })();

@@ -25,6 +25,9 @@
 	    };
 		function addToLS(code) {
 			if(code) {
+				if(!JSON.parse(getData())) {
+					setData('[]');
+				}
 				var dataTab = JSON.parse(getData());
 				dataTab.push(code);
 				setData(JSON.stringify(dataTab));
@@ -35,7 +38,7 @@
 			return factory.cities;
 		};
 		factory.updateData = function() {
-			// todo : rewrite for refresh button
+			// todo : rewrite for the refresh button
 			// if(JSON.parse(getData()).length > 0) {
 			// 	var cityCodes = JSON.parse(getData());
 			// 	for (var i = 0; i < cityCodes.length; i++) {
