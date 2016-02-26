@@ -7,14 +7,9 @@
 
 	function SettingsController($scope, $route, Storage, Widget) {
 		$scope.cities = Storage.cities;
+		$scope.err = false;
+		$scope.label = "Enter a city name or code";
 
-
-		function addCityByName(name) {
-			Storage.addByName(name);
-		};	
-		function addCityByCode(code) {
-			Storage.addByName(code);
-		};
 		function update() {
 			$scope.cities = Storage.cities;
 		}
@@ -25,33 +20,34 @@
 			}
 		};
 		$scope.add = function(value) {
-			// TEST value
 			Widget.getCity(value).then(function(res) {
-				var city = {};
-				var prefix = 'wi wi-';
-				var wCode = res.weather[0].id;
-			  	var icon = ICONS[wCode].icon;
-			  	if (!(wCode > 699 && wCode < 800) && !(wCode > 899 && wCode < 1000)) {
-		  	 	icon = 'day-' + icon;
-			  	}
-			  	icon = prefix + icon;
-				city.name = res.name;
-				city.temp = res.main.temp;
-				city.id = res.id;
-				Storage.addData(city);
-				update();
-				city.icon = icon;
-				console.log(city.icon);
+				if(res.cod === 200) {
+					$scope.err = false;
+					var city = {};
+					var prefix = 'wi wi-';
+					var wCode = res.weather[0].id;
+					var wDesc = res.weather[0].description;
+				  	var icon = ICONS[wCode].icon;
+				  	if (!(wCode > 699 && wCode < 800) && !(wCode > 899 && wCode < 1000)) {
+			  	 		icon = 'day-' + icon;
+				  	}
+				  	icon = prefix + icon;
+					city.name = res.name;
+					city.temp = Math.floor(res.main.temp);
+					city.id = res.id;
+					city.icon = icon;
+					city.desc = wDesc;
+					Storage.save(city);
+					update();
+				} else {
+					$scope.err = true;
+					$scope.message = "City not found";
+				}
 			});
 		}
-		$scope.removeCity = function(code) {
-			for (var i = 0; i < Storage.cities.length; i++) {
-				if(Storage.cities[i].id === code) {
-					Storage.remove(code);
-				}
-			}
+		$scope.remove = function(city) {
+			Storage.remove(city);
 			update();
-			// Storage.remove(code);
 		};
 	}
 })();

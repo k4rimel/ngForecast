@@ -1,16 +1,23 @@
-<div class="row">
-    <div class="col-md-6 col-md-offset-6">
-        <form class="form-inline">
-        	<div class="form-group">
-        	    <label for="cityInput">Add a new City : </label>
-        	    <input type="text" class="form-control" id="cityInput" placeholder="type a city name or code" ng-model="cityName">
-
-        	</div>
-        	<button type="submit" class="btn btn-success" ng-click="add(cityName)">Add</button>
-        </form>
+<div class="col-md-12">
+    <div class="row add-form-container">
+      <div class="col-md-5 col-md-offset-7">
+              <form ng-submit="add(cityName)">
+                  <div class="form-group label-floating" ng-class="{'has-error' : err}">
+                    <div class="input-group">
+                      <label class="control-label" for="input-city" ng-show="err">{{message}}</label>
+                      <input type="text" id="input-city" class="form-control" ng-model="cityName">
+                      <p class="help-block">{{label}}</p>
+                      <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary btn-raised">
+                              <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+              </form>
+      </div>
     </div>
-</div>
-<div class="row">
+    <div class="row">
     <table class="table table-hover">
        <thead>
            <tr>
@@ -20,11 +27,12 @@
            </tr>
        </thead>
        <tbody>
-           <tr ng-repeat="city in cities">
+           <tr ng-repeat="city in cities track by $index">
                <td>{{city.name}}</td>
                <td>{{city.id}}</td>
-               <td><a href="" ng-click="removeCity(city.id)"><span class="glyphicon glyphicon-remove"></span></a></td>
+               <td><a href="" ng-click="remove(city)"><span class="glyphicon glyphicon-remove"></span></a></td>
            </tr>
        </tbody>
     </table>
-</div>
+    </div>
+   </d iv>

@@ -1,11 +1,16 @@
-<div class="widgets-container">
-	<div class="panel panel-default" ng-repeat="city in cities">
-	  	<div class="panel-heading">
-	    	<h3 class="panel-title">{{city.name}}</h3>
-	  	</div>
-	  	<div class="panel-body">
-	    	{{city.temp + " °C"}}
-	    	<i class="{{city.icon}}"></i>
-	  	</div>
+<div class="list-group">
+	<div class="widget col-md-4 col-lg-3" ng-repeat="city in cities track by $index">
+		<div class="list-group-item" >
+		<div class="row-action-primary">
+			<i class="{{city.icon}} weather-icon"></i>
+		</div>
+		<div class="row-content">
+		  <div class="least-content city-temp">{{city.temp + " °C"}}</div>
+		  <h4 class="list-group-item-heading city-name">{{city.name}}</h4>
+		  <p class="list-group-item-text weather-desc">{{city.desc}}</p>
+		</div>
+		</div>
+	  <div class="list-group-separator"></div>
 	</div>
 </div>
+

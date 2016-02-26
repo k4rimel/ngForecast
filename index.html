@@ -5,6 +5,9 @@
 	<title>NG Forecast</title>
 	<!-- libs -->
 	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
 	<script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
 	<script type="text/javascript" src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
 	<!-- end libs -->
@@ -16,7 +19,6 @@
 	<script type="text/javascript" src="src/routes.js"></script>
 	<!-- end main app -->
 	<!-- controllers -->
-	<script type="text/javascript" src="src/controllers/mainController.js"></script>
 	<script type="text/javascript" src="src/controllers/homeController.js"></script>
 	<script type="text/javascript" src="src/controllers/settingsController.js"></script>
 	<!-- end controllers -->
@@ -33,17 +35,36 @@
 	<!-- filters -->
 	<script type="text/javascript" src="src/filters/dateFilter.js"></script>
 	<!-- end filers -->
-	<link rel="stylesheet" type="text/css" href="bower_components/bower-bootswatch-paper/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap-material-design/dist/css/ripples.min.css">
 	<link rel="stylesheet" type="text/css" href="bower_components/weather-icons/css/weather-icons.min.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
-<body style="background-color: #1d1d1d;">
+<body>
+	<script type="text/javascript">
+		$.material.init();
+	</script>
 	<div class="container">
 		<div class="row">
-			<h1 id="app-title">ngForecast</h1>
-			<ul class="nav nav-pills">
-			  <li role="presentation" ng-class="{active: $route.current.activetab == ''}"><a href="home">Home</a></li>
-			  <li role="presentation" ng-class="{active: $route.current.activetab == 'settings'}" ><a href="settings">Settings</a></li>
-			</ul>
+			<div class="navbar navbar-default">
+			  <div class="container-fluid">
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="home">ngForecast</a>
+			    </div>
+			    <div class="navbar-collapse collapse navbar-responsive-collapse" id="navbar-responsive-collapse">
+			      	<ul class="nav navbar-nav main-menu">
+	      			  <li ng-class="{active: $route.current.activetab == '/'}"><a href="home" data-toggle="tab"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+	      			  <li ng-class="{active: $route.current.activetab == '/settings'}"><a href="settings" data-toggle="tab"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+      				</ul>
+			    </div>
+			  </div>
+			</div>
 		</div>
 		<div class="row" ng-view>
 		</div>
